@@ -3,7 +3,7 @@
 module.exports = SearchClient;
 
 /**
- * Used to access Jira REST endpoints in '/rest/api/2/search'
+ * Used to access Jira REST endpoints in '/rest/api/2/search/jql'
  *
  * @param {JiraClient} jiraClient
  * @constructor SearchClient
@@ -58,7 +58,7 @@ function SearchClient(jiraClient) {
         opts.method = (opts.method || 'POST').toUpperCase();
 
         var options = {
-            uri: this.jiraClient.buildURL('/search'),
+            uri: this.jiraClient.buildURL('/search/jql'),
             method: opts.method,
             json: true,
             headers: {
