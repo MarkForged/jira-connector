@@ -561,7 +561,7 @@ is still valid!
   - moveFieldOnTab
   - moveTabPosition
   - addFieldToDefaultTab
-- search (/rest/api/2/search)
+- search (/rest/api/2/search/jql)
   - search
 - securityLevel (/rest/api/2/securitylevel)
   - getSecurityLevel
