@@ -19,24 +19,20 @@ export interface IssueResponse {
 }
 
 export interface SearchResult {
-  expand: string;
-  startAt: number;
-  maxResults: number;
-  total: number;
+  isLast: boolean;
   issues: IssueResponse[];
-  warningMessages: string[];
   names: any;
   schema: any;
+  nextPageToken: string;
 }
 
 export class Search {
   search(
     opts: {
-      method?: 'GET' | 'POST' | 'get' | 'post'
+      method?: 'GET' | 'POST' | 'get' | 'post';
       jql?: string;
-      startAt?: number;
+      nextPageToken?: string;
       maxResults?: number;
-      validateQuery?: string | boolean | 'strict' | 'warn' | 'none' | 'true' | 'false';
       expand?: string[];
       properties?: string[];
       fieldsByKeys?: boolean;

@@ -40,11 +40,10 @@ function SearchClient(jiraClient) {
      * @param opts The options for the search.
      * @param {GET | POST} [opts.method=POST] search request method
      * @param {string} [opts.jql] The JQL query string
-     * @param {number} [opts.startAt=0] The index of the first issue to return (0-based)
+     * @param {number} [opts.nextPageToken=null] The index of the first issue to return (0-based)
      * @param {number} [opts.maxResults=50] The maximum number of issues to return (defaults to 50). The maximum allowable
      *     value is dictated by the JIRA property 'jira.search.views.default.max'. If you specify a value that is
      *     higher than this number, your search results will be truncated.
-     * @param {string} [opts.validateQuery=strict] Whether to validate the JQL query
      * @param {Array<string>} [opts.fields] The list of fields to return for each issue. By default, all navigable fields are
      *     returned.
      * @param {Array<string>} [opts.expand] A list of the parameters to expand.
@@ -74,9 +73,8 @@ function SearchClient(jiraClient) {
 
         var search_options = {
             jql: opts.jql,
-            startAt: opts.startAt || 0,
+            nextPageToken: opts.nextPageToken || null,
             maxResults: opts.maxResults || 50,
-            validateQuery: opts.validateQuery,
             fields,
             expand,
             properties,
